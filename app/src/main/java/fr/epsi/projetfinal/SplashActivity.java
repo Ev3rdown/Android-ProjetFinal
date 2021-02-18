@@ -19,6 +19,6 @@ public class SplashActivity extends ProjetActivity {
                 HomeActivity.displayActivity(SplashActivity.this);
                 finish();
             }
-        },2000);
+        },1000);
     }
 }

@@ -33,11 +33,11 @@ public class RayonAdapter extends RecyclerView.Adapter<RayonAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Rayon rayon = rayons.get(position);
-        holder.getRayonTitle().setText(rayon.getName());
-        holder.getRayonCell().setOnClickListener(new View.OnClickListener() {
+        holder.getListeRayonTitle().setText(rayon.getTitle());
+        holder.getListeRayonCell().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ImageActivity.displayActivity(activity,rayon.getProducts_url(),rayon.getTitle());
+                ProduitActivity.displayActivity(activity, rayon.getProducts_url(), rayon.getTitle());
             }
         });
     }
@@ -48,21 +48,21 @@ public class RayonAdapter extends RecyclerView.Adapter<RayonAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView rayonTitle;
-        private final View rayonCell;
+        private final TextView listeRayonCellTitle;
+        private final View listeRayonCell;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            rayonTitle = view.findViewById(R.id.rayonCellName);
-            rayonCell = view.findViewById(R.id.rayonCell);
+            listeRayonCellTitle = view.findViewById(R.id.listeRayonCellTitle);
+            listeRayonCell = view.findViewById(R.id.listeRayonCell);
         }
 
-        public View getRayonCell() {
-            return rayonCell;
+        public View getListeRayonCell() {
+            return listeRayonCell;
         }
-        public TextView getRayonTitle() {
-            return rayonTitle;
+        public TextView getListeRayonTitle() {
+            return listeRayonCellTitle;
         }
     }
 

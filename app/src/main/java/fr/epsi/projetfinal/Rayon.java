@@ -4,37 +4,25 @@ import org.json.JSONObject;
 
 public class Rayon {
 
-    private String name;
-    private String description;
-    private String picture_url;
+    private String category_id;
+    private String title;
+    private String products_url;
 
     public Rayon(JSONObject o){
-        name=o.optString("name","");
-        description=o.optString("description","");
-        picture_url=o.optString("picture_url","");
+        category_id=o.optString("category_id","");
+        title=o.optString("title","");
+        products_url=o.optString("products_url","");
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getTitle() { return title; }
 
-    public String getDescription() {
-        return description;
-    }
+    public String getCategory_id() { return category_id; }
 
-    public String getPicture_url() {
-        return picture_url;
-    }
+    public String getProducts_url() { return products_url; }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setCategory_id(String category_id) { this.category_id = category_id; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setProducts_url(String products_url) { this.products_url = products_url; }
 
-    public void setPicture_url(String picture_url) {
-        this.picture_url = picture_url;
-    }
+    public void setTitle(String title) { this.title = title; }
 }

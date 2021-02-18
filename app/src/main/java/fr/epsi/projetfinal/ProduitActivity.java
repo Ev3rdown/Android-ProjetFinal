@@ -14,27 +14,30 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class ListeRayonActivity extends ProjetActivity {
+public class ProduitActivity extends ProjetActivity {
 
-    String wsUrl="https://djemam.com/epsi/categories.json";
-    ArrayList<ListeRayon> listeRayons;
-    ListeRayonAdapter listeRayonAdapter;
+    String wsUrl="";
+    ArrayList<Produit> produits;
+    ProduitAdapter produitAdapter;
     RecyclerView recyclerView;
-    public static void displayActivity(ProjetActivity activity){
-        Intent intent = new Intent(activity, ListeRayonActivity.class);
+    public static void displayActivity(ProjetActivity activity,String rayonUrl,String rayonTitle){
+        Intent intent = new Intent(activity, ProduitActivity.class);
+        intent.putExtra("rayonUrl",rayonUrl);
+        intent.putExtra("rayonTitle",rayonTitle);
         activity.startActivity(intent);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_rayon);
-        setTitle("Rayons");
+        setTitle(getIntent().getExtras().getString("rayonTitle"));
         showBack();
+        wsUrl=getIntent().getExtras().getString("rayonUrl");
         recyclerView=findViewById(R.id.recyclerView);
-        listeRayons = new ArrayList<>();
-        listeRayonAdapter = new ListeRayonAdapter(this, listeRayons);
+        produits = new ArrayList<>();
+        produitAdapter = new ProduitAdapter(this, produits);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(listeRayonAdapter);
+        recyclerView.setAdapter(produitAdapter);
         WSCall wsCall= new WSCall(wsUrl, new WSCall.Callback() {
             @Override
             public void onComplete(String result) {
@@ -42,11 +45,11 @@ public class ListeRayonActivity extends ProjetActivity {
                     JSONObject jsonObject=new JSONObject(result);
                     JSONArray jsonItems=jsonObject.getJSONArray("items");
                     for (int i=0;i<jsonItems.length();i++){
-                        ListeRayon listeRayon = null;
-                        listeRayon = new ListeRayon(jsonItems.getJSONObject(i));
-                        listeRayons.add(listeRayon);
+                        Produit produit = null;
+                        produit = new Produit(jsonItems.getJSONObject(i));
+                        produits.add(produit);
                     }
-                    listeRayonAdapter.notifyDataSetChanged();
+                    produitAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -54,7 +57,7 @@ public class ListeRayonActivity extends ProjetActivity {
 
             @Override
             public void onError(Exception e) {
-                Toast.makeText(ListeRayonActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                Toast.makeText(ProduitActivity.this,e.getMessage(),Toast.LENGTH_LONG).show();
             }
         });
         wsCall.run();

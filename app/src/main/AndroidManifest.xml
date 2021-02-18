@@ -12,8 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetFinal">
-        <activity android:name=".RayonActivity"></activity>
-        <activity android:name=".ListeRayonActivity" />
+        <activity android:name=".ProduitActivity"></activity>
+        <activity android:name=".RayonActivity" />
         <activity android:name=".EtudiantDetailActivity" />
         <activity android:name=".EtudiantListeActivity" />
         <activity android:name=".HomeActivity" />

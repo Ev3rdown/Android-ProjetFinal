@@ -27,7 +27,7 @@ public class HomeActivity extends ProjetActivity implements View.OnClickListener
                 EtudiantListeActivity.displayActivity(this);
                 break;
             case R.id.buttonProduit:
-                ListeRayonActivity.displayActivity(this);
+                RayonActivity.displayActivity(this);
                 break;
         }
     }

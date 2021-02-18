@@ -16,23 +16,20 @@ import java.util.ArrayList;
 
 public class RayonActivity extends ProjetActivity {
 
-    String wsUrl="";
+    String wsUrl="https://djemam.com/epsi/categories.json";
     ArrayList<Rayon> rayons;
     RayonAdapter rayonAdapter;
     RecyclerView recyclerView;
-    public static void displayActivity(ProjetActivity activity,String rayonUrl,String rayonTitle){
+    public static void displayActivity(ProjetActivity activity){
         Intent intent = new Intent(activity, RayonActivity.class);
-        intent.putExtra("rayonUrl",rayonUrl);
-        intent.putExtra("rayonTitle",rayonTitle);
         activity.startActivity(intent);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liste_rayon);
-        setTitle(getIntent().getExtras().getString("rayonTitle"));
+        setTitle("Rayons");
         showBack();
-        wsUrl=getIntent().getExtras().getString("rayonUrl");
         recyclerView=findViewById(R.id.recyclerView);
         rayons = new ArrayList<>();
         rayonAdapter = new RayonAdapter(this, rayons);
