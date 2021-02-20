@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/color"
     android:layout_width="match_parent"
-    android:background="@android:color/holo_blue_light"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/design_default_color_primary"
+    android:orientation="vertical">
+
     <LinearLayout
-        android:id="@+id/listeRayonCell"
-        android:orientation="horizontal"
+        android:id="@+id/rayonCell"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <RelativeLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/listeRayonCellTitle"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                android:padding="10dp"
-                android:text="nidal@epsi.fr"
-                android:gravity="center_horizontal"
+                android:id="@+id/rayonCellTitle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="10dp"
+                android:textColor="?attr/colorButtonNormal"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </LinearLayout>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/black"/>
+        android:background="@color/black" />
 </LinearLayout>

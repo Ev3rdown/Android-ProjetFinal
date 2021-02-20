@@ -4,9 +4,9 @@ import org.json.JSONObject;
 
 public class Rayon {
 
-    private String category_id;
-    private String title;
-    private String products_url;
+    private final String category_id;
+    private final String title;
+    private final String products_url;
 
     public Rayon(JSONObject o){
         category_id=o.optString("category_id","");
@@ -16,13 +16,6 @@ public class Rayon {
 
     public String getTitle() { return title; }
 
-    public String getCategory_id() { return category_id; }
-
     public String getProducts_url() { return products_url; }
 
-    public void setCategory_id(String category_id) { this.category_id = category_id; }
-
-    public void setProducts_url(String products_url) { this.products_url = products_url; }
-
-    public void setTitle(String title) { this.title = title; }
 }

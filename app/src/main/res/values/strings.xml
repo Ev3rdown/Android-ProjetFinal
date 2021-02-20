@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ProjetFinal</string>
+    <string name="contentDescription_pp">Photo de profil</string>
+    <string name="nom_et_prenom">Nom et Prenom</string>
+    <string name="mail">Mail</string>
+    <string name="groupe">Groupe</string>
+    <string name="etudiant">Etudiant</string>
+    <string name="produits">Produits</string>
+    <string name="contentDescription_product">Image du produit</string>
+    <string name="description">Description:</string>
+    <string name="contentDescription_goback_button">Go-back button</string>
+    <string name="epsi">Epsi</string>
+    <string name="contentDescription_logo_epsi">Logo Epsi</string>
+    <string name="yoann">Yoann</string>
 </resources>

@@ -10,10 +10,6 @@ import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
 import javax.net.ssl.HttpsURLConnection;
 
 public class WSCall {
@@ -24,8 +20,8 @@ public class WSCall {
 
     private final ExecutorService executor = Executors.newSingleThreadExecutor(); // change according to your requirements
     private final Handler handler = new Handler(Looper.getMainLooper());
-    private  Callback callback;
-    private String wsUrl;
+    private final Callback callback;
+    private final String wsUrl;
 
     public WSCall(String wsUrl,Callback callback){
         this.wsUrl=wsUrl;
@@ -37,7 +33,7 @@ public class WSCall {
             @Override
             public void run() {
                 try {
-                    InputStream inputStream = null;
+                    InputStream inputStream;
                     URL url = new URL(wsUrl);
                     HttpsURLConnection httpURLConnection = (HttpsURLConnection) url.openConnection();
                     httpURLConnection.connect();
@@ -72,7 +68,7 @@ public class WSCall {
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
 
-            StringBuilder stringBuffer = new StringBuilder("");
+            StringBuilder stringBuffer = new StringBuilder();
             String line;
 
             String NL = System.getProperty("line.separator");

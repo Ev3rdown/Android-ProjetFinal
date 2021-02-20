@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class RayonAdapter extends RecyclerView.Adapter<RayonAdapter.ViewHolder>{
 
-    private ArrayList<Rayon> rayons;
-    private ProjetActivity activity;
+    private final ArrayList<Rayon> rayons;
+    private final ProjetActivity activity;
 
     public RayonAdapter(ProjetActivity activity, ArrayList<Rayon> rayons){
         this.activity=activity;
@@ -33,8 +33,8 @@ public class RayonAdapter extends RecyclerView.Adapter<RayonAdapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Rayon rayon = rayons.get(position);
-        holder.getListeRayonTitle().setText(rayon.getTitle());
-        holder.getListeRayonCell().setOnClickListener(new View.OnClickListener() {
+        holder.getRayonTitle().setText(rayon.getTitle());
+        holder.getRayonCell().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ProduitActivity.displayActivity(activity, rayon.getProducts_url(), rayon.getTitle());
@@ -48,21 +48,21 @@ public class RayonAdapter extends RecyclerView.Adapter<RayonAdapter.ViewHolder>{
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView listeRayonCellTitle;
-        private final View listeRayonCell;
+        private final TextView rayonCellTitle;
+        private final View rayonCell;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-            listeRayonCellTitle = view.findViewById(R.id.listeRayonCellTitle);
-            listeRayonCell = view.findViewById(R.id.listeRayonCell);
+            rayonCellTitle = view.findViewById(R.id.rayonCellTitle);
+            rayonCell = view.findViewById(R.id.rayonCell);
         }
 
-        public View getListeRayonCell() {
-            return listeRayonCell;
+        public View getRayonCell() {
+            return rayonCell;
         }
-        public TextView getListeRayonTitle() {
-            return listeRayonCellTitle;
+        public TextView getRayonTitle() {
+            return rayonCellTitle;
         }
     }
 

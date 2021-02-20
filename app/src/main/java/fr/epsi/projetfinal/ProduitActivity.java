@@ -29,7 +29,7 @@ public class ProduitActivity extends ProjetActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste_rayon);
+        setContentView(R.layout.activity_rayon);
         setTitle(getIntent().getExtras().getString("rayonTitle"));
         showBack();
         wsUrl=getIntent().getExtras().getString("rayonUrl");
@@ -45,7 +45,7 @@ public class ProduitActivity extends ProjetActivity {
                     JSONObject jsonObject=new JSONObject(result);
                     JSONArray jsonItems=jsonObject.getJSONArray("items");
                     for (int i=0;i<jsonItems.length();i++){
-                        Produit produit = null;
+                        Produit produit;
                         produit = new Produit(jsonItems.getJSONObject(i));
                         produits.add(produit);
                     }

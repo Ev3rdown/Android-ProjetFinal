@@ -15,8 +15,8 @@ import java.util.ArrayList;
 
 public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHolder>{
 
-    private ArrayList<Produit> produits;
-    private ProjetActivity activity;
+    private final ArrayList<Produit> produits;
+    private final ProjetActivity activity;
 
     public ProduitAdapter(ProjetActivity activity, ArrayList<Produit> produits){
         this.activity=activity;
@@ -42,7 +42,7 @@ public class ProduitAdapter extends RecyclerView.Adapter<ProduitAdapter.ViewHold
         holder.getRayonCell().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ImageActivity.displayActivity(activity,rayon.getProducts_url(),rayon.getTitle());
+                ProduitDetailActivity.displayActivity(activity,produit.getPicture_url(),produit.getName(),produit.getDescription());
             }
         });
     }

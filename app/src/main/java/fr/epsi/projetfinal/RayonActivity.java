@@ -27,7 +27,7 @@ public class RayonActivity extends ProjetActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_liste_rayon);
+        setContentView(R.layout.activity_rayon);
         setTitle("Rayons");
         showBack();
         recyclerView=findViewById(R.id.recyclerView);
@@ -42,7 +42,7 @@ public class RayonActivity extends ProjetActivity {
                     JSONObject jsonObject=new JSONObject(result);
                     JSONArray jsonItems=jsonObject.getJSONArray("items");
                     for (int i=0;i<jsonItems.length();i++){
-                        Rayon rayon = null;
+                        Rayon rayon;
                         rayon = new Rayon(jsonItems.getJSONObject(i));
                         rayons.add(rayon);
                     }

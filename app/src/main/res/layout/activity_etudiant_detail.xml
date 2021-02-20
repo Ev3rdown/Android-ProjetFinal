@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EtudiantDetailActivity">
@@ -18,15 +17,17 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/pp"/>
+        android:src="@drawable/pp"
+        android:contentDescription="@string/contentDescription_pp"
+        />
     <TextView
         android:id="@+id/studentName"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Nom et Prenom"
-        android:textSize="20dp"
+        android:text="@string/nom_et_prenom"
+        android:textSize="20sp"
         android:textStyle="bold"/>
     <TextView
         android:id="@+id/studentMail"
@@ -34,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Mail"
-        android:textSize="18dp"/>
+        android:text="@string/mail"
+        android:textSize="18sp"/>
 
     <TextView
         android:id="@+id/studentGroup"
@@ -43,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Groupe"
-        android:textSize="18dp"/>
+        android:text="@string/groupe"
+        android:textSize="18sp"/>
 
 </LinearLayout>
